@@ -20,10 +20,10 @@ import { TaskService } from '../task.service';
 })
 export class TaskComponent {
 
-  allTasks: Task [] = []
-  doneTasks: Task[] = [];
+  allTasks: Task [] = TASKS
+  doneTasks: Task [] = [];
   openTasks: Task[] = [];
-  inProgressTasks: Task[] = [];
+  inProgressTasks: Task [] = [];
 
   selectedTask?: Task;
 
@@ -39,8 +39,26 @@ export class TaskComponent {
 
   getTasks(): void {
     this.taskService.getTasks().subscribe(allTasks => this.allTasks = allTasks);
+    this.openTasks = this.allTasks.filter(t => t.status === "open")
+    this.inProgressTasks = this.allTasks.filter(t => t.status === "in-progress")
+    this.doneTasks = this.allTasks.filter(t => t.status === "done")
+
 
     console.log(this.doneTasks.length + "  "+ this.openTasks.length+ "  "+ this.allTasks.length)
+  }
+
+  drop(event: CdkDragDrop<Task []>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      // TODO: need to perform a put action and change the state of the todo
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
   }
 
 }
