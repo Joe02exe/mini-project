@@ -13,7 +13,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -37,8 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Remove it when a real server is ready to receive requests.
 HttpClientInMemoryWebApiModule.forRoot(
   InMemoryDataService, { dataEncapsulation: false }
-),
- BrowserAnimationsModule
+)
   ],
   providers: [],
   bootstrap: [AppComponent],

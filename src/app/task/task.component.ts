@@ -20,7 +20,7 @@ import { TaskService } from '../task.service';
 })
 export class TaskComponent {
 
-  allTasks: Task [] = TASKS
+  allTasks: Task [] = []
   doneTasks: Task[] = [];
   openTasks: Task[] = [];
   inProgressTasks: Task[] = [];
@@ -39,9 +39,6 @@ export class TaskComponent {
 
   getTasks(): void {
     this.taskService.getTasks().subscribe(allTasks => this.allTasks = allTasks);
-    this.openTasks = this.allTasks.filter(t => t.status == "open");
-    this.inProgressTasks = this.allTasks.filter(t => t.status == "in-progress");
-    this.doneTasks = this.allTasks.filter(t => t.status == "done");
 
     console.log(this.doneTasks.length + "  "+ this.openTasks.length+ "  "+ this.allTasks.length)
   }
