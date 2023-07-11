@@ -8,9 +8,7 @@
   <div class="bottom" cdkDropListGroup>
     <div
       cdkDropList
-      #openList="cdkDropList"
       [cdkDropListData]="openTasks"
-      [cdkDropListConnectedTo]="[inProgressList, doneList]"
       class="open"
       (cdkDropListDropped)="drop($event)">
       <div class="example-box" *ngFor="let task of openTasks" cdkDrag>
@@ -19,9 +17,7 @@
     </div>
     <div
       cdkDropList
-      #inProgressList="cdkDropList"
       [cdkDropListData]="inProgressTasks"
-      [cdkDropListConnectedTo]="[openList, doneList]"
       class="inProgress"
       (cdkDropListDropped)="drop($event)">
       <div class="example-box" *ngFor="let task of inProgressTasks" cdkDrag>
@@ -30,9 +26,7 @@
     </div>
     <div
       cdkDropList
-      #doneList="cdkDropList"
       [cdkDropListData]="doneTasks"
-      [cdkDropListConnectedTo]="[openList, inProgressList]"
       class="done"
       (cdkDropListDropped)="drop($event)">
       <div class="example-box" *ngFor="let task of doneTasks" cdkDrag>
