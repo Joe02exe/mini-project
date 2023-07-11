@@ -1,0 +1,28 @@
+<mat-card class="task-card" *ngIf="task"  routerLink="/task/{{task.id}}">
+    <mat-card-header>
+      <mat-card-title>Task name: {{task.name}}</mat-card-title>
+      <mat-card-subtitle>ID: {{task.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>Assigned User: {{task.assignedUser.username}}</p>
+        <p>Category: {{task.category}}</p>
+        <p>Description: {{task.description}}</p>
+    </mat-card-content>
+    <mat-card-actions style="justify-content: flex-end;">
+        <div class="checkBox">
+            <button mat-icon-button>
+                <mat-icon>done</mat-icon>
+            </button>
+        </div>
+        <div class="taskManipulation">
+            <button mat-icon-button color="basic">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-card-actions>
+</mat-card>
+
+<router-outlet></router-outlet>
