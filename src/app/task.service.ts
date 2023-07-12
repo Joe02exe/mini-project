@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Task } from './task/task';
-import { TASKS } from './task/mockTasks';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -21,8 +20,8 @@ export class TaskService {
 
   addTask(task: Task): Observable<any> {
     return this.http.post(this.tasksURL, task, this.httpOptions).pipe(
-      tap(_ => this.log(`updated task id=${task.id}`)),
-      catchError(this.handleError<any>('updateTask'))
+      tap(_ => this.log(`added task id=${task.id}`)),
+      catchError(this.handleError<any>('addTask'))
     );
   }
 
@@ -37,8 +36,8 @@ export class TaskService {
     const url = `${this.tasksURL}/${task.id}`;
 
     return this.http.delete(url, this.httpOptions).pipe(
-      tap(_ => this.log(`updated task id=${task.id}`)),
-      catchError(this.handleError<any>('updateTask'))
+      tap(_ => this.log(`deleted task id=${task.id}`)),
+      catchError(this.handleError<any>('deleteTask'))
     );
   } 
 
