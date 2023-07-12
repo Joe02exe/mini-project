@@ -1,12 +1,12 @@
 <mat-card class="task-card" *ngIf="task" (click)="openDialog(task)">
-  <mat-card-header>
-    <mat-card-title>Task name: {{task.name}}</mat-card-title>
-    <mat-card-subtitle>ID: {{task.id}}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-      <p>Assigned User: {{task.assignedUser.username}}</p>
-      <p>Category: {{task.category}}</p>
-  </mat-card-content>
+    <mat-card-header >
+      <mat-card-title>Task name: {{task.name}}</mat-card-title>
+      <mat-card-subtitle>ID: {{task.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>Assigned User: {{task.assignedUser.username}}</p>
+        <p>Category: {{task.category}}</p>
+    </mat-card-content>
   <div>
     <mat-card-actions style="justify-content: flex-end;">
       <div class="checkBox">
@@ -15,12 +15,7 @@
           </button>
       </div>
       <div class="taskManipulation">
-          <button mat-icon-button color="basic">
-              <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-icon-button color="warn">
-              <mat-icon>delete</mat-icon>
-          </button>
+          <app-delete-task-button [task]="task"></app-delete-task-button>
       </div>
     </mat-card-actions>
   </div>

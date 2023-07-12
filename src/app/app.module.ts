@@ -19,7 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { AddTaskDialogComponent } from './add-task-dialog/add-task-dialog.component';
-import { DeleteTaskDialogComponent } from './delete-task-dialog/delete-task-dialog.component'; 
+import { DeleteTaskButtonComponent } from './delete-task-button/delete-task-button.component'; 
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { DeleteTaskDialogComponent } from './delete-task-dialog/delete-task-dial
     TaskComponent,
     DialogElementsExampleDialog,
     AddTaskDialogComponent,
-    DeleteTaskDialogComponent
+    DeleteTaskButtonComponent
   ],
   imports: [
     MatSelectModule,
