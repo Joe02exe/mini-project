@@ -7,11 +7,7 @@
       <mat-form-field class="selectForm">
         <mat-label>Assigned User</mat-label>
         <mat-select [(value)]="task.assignedUser" placeholder="{{task.assignedUser.username}}">
-          <!---here use ngfor whenever we can get all the users---->
-          <div *ngFor="let user of users">
-            <mat-option value="{{user}}">{{user.username}}</mat-option>
-          </div>
-          
+          <mat-option *ngFor="let user of users" [value]="user">{{user.username}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field class="selectForm">
