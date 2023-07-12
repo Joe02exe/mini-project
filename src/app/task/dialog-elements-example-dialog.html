@@ -14,8 +14,7 @@
         <mat-label>Category</mat-label>
         <mat-select [(value)]="task.category" placeholder="{{task.category}}">
           <!---here use ngfor whenever we can get all the categories---->
-          <mat-option value="one">First option</mat-option>
-          <mat-option value="two">Second option</mat-option>
+          <mat-option *ngFor="let c of taskCategory | keyvalue" [value]="c.value">{{c.value}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -25,6 +24,6 @@
     </mat-form-field>
   </div>
   <div mat-dialog-actions>
-    <button mat-button [mat-dialog-close]="task">Save</button>
+    <button mat-button [mat-dialog-close]="task">Close</button>
   </div>
 </div>

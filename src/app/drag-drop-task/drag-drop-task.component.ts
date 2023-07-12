@@ -9,7 +9,6 @@ import {
 } from '@angular/cdk/drag-drop';
 
 import { Task } from '../task/task';
-import { TASKS } from '../task/mockTasks';
 import { TaskService } from '../task.service';
 
 @Component({

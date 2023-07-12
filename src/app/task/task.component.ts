@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Task } from '../task/task';
+import { Task, TaskCategory } from '../task/task';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { NgIf } from '@angular/common'
@@ -33,6 +33,8 @@ export class TaskComponent {
 })
 export class DialogElementsExampleDialog {
   public task?: Task;
+
+  public taskCategory = TaskCategory;
 
   users: User[] = [];
 
