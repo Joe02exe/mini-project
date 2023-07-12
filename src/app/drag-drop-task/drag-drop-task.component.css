@@ -26,3 +26,10 @@
     background-color:rgb(172, 200, 200);
     border-radius: 10px;    
 }
+
+.addButton {
+    scale: 1.5;
+    position:absolute;
+    right: 3.5rem;
+    padding: 1rem 1rem;
+}

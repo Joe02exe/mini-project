@@ -1,4 +1,6 @@
 import { User } from "../user/user";
+import { v4 as uuidv4 } from 'uuid';
+
 
 export enum TaskCategory {
     entry1 = "frontend",
@@ -8,7 +10,7 @@ export enum TaskCategory {
 }
 
 export interface Task {
-    id: number;
+    id: string;
     name: string;
     category: TaskCategory;
     assignedUser: User;

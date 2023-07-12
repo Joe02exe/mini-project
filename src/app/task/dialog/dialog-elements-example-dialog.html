@@ -13,7 +13,6 @@
       <mat-form-field class="selectForm">
         <mat-label>Category</mat-label>
         <mat-select [(value)]="task.category" placeholder="{{task.category}}">
-          <!---here use ngfor whenever we can get all the categories---->
           <mat-option *ngFor="let c of taskCategory | keyvalue" [value]="c.value">{{c.value}}</mat-option>
         </mat-select>
       </mat-form-field>

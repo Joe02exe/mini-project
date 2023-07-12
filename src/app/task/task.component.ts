@@ -26,9 +26,9 @@ export class TaskComponent {
 
 
 @Component({
-  selector: 'dialog-elements-example-dialog',
-  templateUrl: 'dialog-elements-example-dialog.html',
-  styleUrls: ['./dialog-elements-example-dialog.css']
+  selector: './dialog/dialog-elements-example-dialog',
+  templateUrl: './dialog/dialog-elements-example-dialog.html',
+  styleUrls: ['./dialog/dialog-elements-example-dialog.css']
   
 })
 export class DialogElementsExampleDialog {

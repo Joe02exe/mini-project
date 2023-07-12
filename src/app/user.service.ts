@@ -45,6 +45,13 @@ export class UserService {
         catchError(this.handleError<User[]>('getUsers', []))
       );
   }
+  getUser(username :String): Observable<User> {
+    const url = `${this.userURL}/${username}`;
+    return this.http.get<User>(url).pipe(
+      tap(_ => this.log(`fetched user id=${username}`)),
+      catchError(this.handleError<User>(`getUser id=${username}`))
+    );
+    }
   
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

@@ -18,8 +18,9 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import { AddTaskDialogComponent } from './add-task-dialog/add-task-dialog.component';
-import { DeleteTaskButtonComponent } from './delete-task-button/delete-task-button.component'; 
+import { DeleteTaskButtonComponent } from './delete-task-button/delete-task-button.component';
+import { AddTaskButtonComponent } from './add-task-button/add-task-button.component';
+import { AddTaskDialogComponent } from './add-task-button/add-task-dialog/add-task-dialog.component'; 
 
 @NgModule({
   declarations: [
@@ -28,8 +29,8 @@ import { DeleteTaskButtonComponent } from './delete-task-button/delete-task-butt
     DragDropTaskComponent,
     TaskComponent,
     DialogElementsExampleDialog,
-    AddTaskDialogComponent,
-    DeleteTaskButtonComponent
+    DeleteTaskButtonComponent,
+    AddTaskButtonComponent,
   ],
   imports: [
     MatSelectModule,

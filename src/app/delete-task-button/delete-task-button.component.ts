@@ -27,7 +27,7 @@ export class DeleteTaskButtonComponent {
 
 @Component({
   selector: 'delete-task-dialog',
-  templateUrl: 'delete-task-dialog.component.html',
+  templateUrl: './dialog/delete-task-dialog.component.html',
   standalone: true,
   imports: [MatDialogModule, MatButtonModule],
 })
