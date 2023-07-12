@@ -8,8 +8,10 @@
         <mat-label>Assigned User</mat-label>
         <mat-select [(value)]="task.assignedUser" placeholder="{{task.assignedUser.username}}">
           <!---here use ngfor whenever we can get all the users---->
-          <mat-option value="one">First option</mat-option>
-          <mat-option value="two">Second option</mat-option>
+          <div *ngFor="let user of users">
+            <mat-option value="{{user}}">{{user.username}}</mat-option>
+          </div>
+          
         </mat-select>
       </mat-form-field>
       <mat-form-field class="selectForm">

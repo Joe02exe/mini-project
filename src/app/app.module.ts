@@ -18,7 +18,8 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import { AddTaskDialogComponent } from './add-task-dialog/add-task-dialog.component'; 
+import { AddTaskDialogComponent } from './add-task-dialog/add-task-dialog.component';
+import { DeleteTaskDialogComponent } from './delete-task-dialog/delete-task-dialog.component'; 
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddTaskDialogComponent } from './add-task-dialog/add-task-dialog.compon
     DragDropTaskComponent,
     TaskComponent,
     DialogElementsExampleDialog,
-    AddTaskDialogComponent
+    AddTaskDialogComponent,
+    DeleteTaskDialogComponent
   ],
   imports: [
     MatSelectModule,

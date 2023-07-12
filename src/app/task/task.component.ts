@@ -4,6 +4,9 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { NgIf } from '@angular/common'
 import { TaskService } from '../task.service';
+import { User } from '../user/user';
+import { UserService } from '../user.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-task',
@@ -31,5 +34,17 @@ export class TaskComponent {
 export class DialogElementsExampleDialog {
   public task?: Task;
 
+  users: User[] = [];
+
+  constructor(private userService : UserService) {}
+
+  ngOnInit(): void {
+    this.getUsers();
+  }
+
+  getUsers(): void {
+    this.userService.getUsers()
+    .subscribe(users => this.users = users);
+  }
   
 }

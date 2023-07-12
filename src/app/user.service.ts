@@ -56,6 +56,6 @@ export class UserService {
     }
 
     private log(message: string) {
-      console.log("logger active"+ message)
+      console.log("logger active: "+ message)
     }  
 }
