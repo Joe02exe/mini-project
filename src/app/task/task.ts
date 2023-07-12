@@ -9,3 +9,5 @@ export interface Task {
     description: string;
     status: "open" | "in-progress" | "done";
 }
+
+//taskdetaildialog, taskaddDialogand taskdeletedialog

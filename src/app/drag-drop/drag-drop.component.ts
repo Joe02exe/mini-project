@@ -13,7 +13,6 @@ import { Task } from '../task/task';
 import { TASKS } from '../task/mockTasks';
 
 
-
 @Component({
   selector: 'app-drag-drop',
   templateUrl: './drag-drop.component.html',

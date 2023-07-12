@@ -4,25 +4,34 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { MatCardModule } from '@angular/material/card';
-import { TaskComponent } from './task/task.component'; 
+import { TaskComponent, DialogElementsExampleDialog } from './task/task.component'; 
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatIconModule } from '@angular/material/icon'
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { TaskDetailComponent } from './task-detail/task-detail.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropTaskComponent } from './drag-drop-task/drag-drop-task.component';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { AddTaskDialogComponent } from './add-task-dialog/add-task-dialog.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
+    DragDropTaskComponent,
     TaskComponent,
-    TaskDetailComponent,
+    DialogElementsExampleDialog,
+    AddTaskDialogComponent
   ],
   imports: [
+    MatSelectModule,
+    FormsModule,
     BrowserModule,
     MatDialogModule,
     MatButtonModule,
@@ -31,6 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     AppRoutingModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
 
 // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
 // and returns simulated server responses.

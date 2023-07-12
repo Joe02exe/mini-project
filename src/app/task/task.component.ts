@@ -1,64 +1,35 @@
 import { Component, Input } from '@angular/core';
-import {NgFor} from '@angular/common';
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
-  CdkDrag,
-  CdkDropList,
-} from '@angular/cdk/drag-drop';
-
-import { Task } from './task';
-import { TASKS } from './mockTasks';
+import { Task } from '../task/task';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import { NgIf } from '@angular/common'
 import { TaskService } from '../task.service';
-
 
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css'],
+  styleUrls: ['./task.component.css']
 })
 export class TaskComponent {
+  @Input() task?: Task;
+  constructor(public dialog: MatDialog, private taskService: TaskService) {}
 
-  allTasks: Task [] = TASKS
-  doneTasks: Task [] = [];
-  openTasks: Task[] = [];
-  inProgressTasks: Task [] = [];
+  openDialog(task: Task) {
+    let dialogref = this.dialog.open(DialogElementsExampleDialog);
 
-  selectedTask?: Task;
-
-  onSelect(task: Task): void {
-    this.selectedTask = task;
+    dialogref.componentInstance.task = task;
   }
-  constructor(private taskService: TaskService) {}
+}
 
 
-  ngOnInit(): void {
-    this.getTasks();
-  }
+@Component({
+  selector: 'dialog-elements-example-dialog',
+  templateUrl: 'dialog-elements-example-dialog.html',
+  styleUrls: ['./dialog-elements-example-dialog.css']
+  
+})
+export class DialogElementsExampleDialog {
+  public task?: Task;
 
-  getTasks(): void {
-    this.taskService.getTasks().subscribe(allTasks => this.allTasks = allTasks);
-    this.openTasks = this.allTasks.filter(t => t.status === "open")
-    this.inProgressTasks = this.allTasks.filter(t => t.status === "in-progress")
-    this.doneTasks = this.allTasks.filter(t => t.status === "done")
-
-
-    console.log(this.doneTasks.length + "  "+ this.openTasks.length+ "  "+ this.allTasks.length)
-  }
-
-  drop(event: CdkDragDrop<Task []>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      // TODO: need to perform a put action and change the state of the todo
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex,
-      );
-    }
-  }
-
+  
 }

@@ -1,28 +1,9 @@
-.todos {
-    display: flex;
-    flex-direction: column;
-    margin: 2rem 2rem;
-    background-color:rgb(231, 238, 238);
-    border-radius: 20px;
-}
-
-.top {
-    display: flex;
-    justify-content: space-around;
-    margin: 5px;
-    background-color:rgb(203, 214, 214);
-    border-radius: 20px;
-
-}
-
-.bottom {
-    display: flex;
-    justify-content: space-around;
-}
-
-.open, .done, .inProgress {
-    padding: 10px;
-    min-width: 550px;
-    background-color:rgb(172, 200, 200);
-    border-radius: 10px;    
+.task-card {
+    min-width: 500px;
+    cursor: pointer;
+    margin: 10px;
+  }
+.checkBox {
+    color: green;
+    justify-content: start;
 }

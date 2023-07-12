@@ -1,0 +1,38 @@
+<h2>All Tasks</h2>
+<div class="todos">
+  <div>addTodos</div>
+  <div class="top">
+    <h2>Open Tasks</h2>
+    <h2>In-Progress Tasks</h2>
+    <h2>Closed Tasks</h2>
+  </div>
+  <div class="bottom" cdkDropListGroup>
+    <div
+      cdkDropList
+      [cdkDropListData]="openTasks"
+      class="open"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let task of openTasks" cdkDrag>
+        <app-task [task]="task"></app-task>
+      </div>
+    </div>
+    <div
+      cdkDropList
+      [cdkDropListData]="inProgressTasks"
+      class="inProgress"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let task of inProgressTasks" cdkDrag>
+        <app-task [task]="task"></app-task>
+      </div>
+    </div>
+    <div
+      cdkDropList
+      [cdkDropListData]="doneTasks"
+      class="done"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let task of doneTasks" cdkDrag>
+        <app-task [task]="task"></app-task>
+      </div>
+    </div>
+  </div>
+</div>

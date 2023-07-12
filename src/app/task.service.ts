@@ -17,8 +17,30 @@ export class TaskService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(
-    private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
+
+  addTask(task: Task): Observable<any> {
+    return this.http.post(this.tasksURL, task, this.httpOptions).pipe(
+      tap(_ => this.log(`updated task id=${task.id}`)),
+      catchError(this.handleError<any>('updateTask'))
+    );
+  }
+
+  updateTask(task: Task): Observable<any> {
+    return this.http.put(this.tasksURL, task, this.httpOptions).pipe(
+      tap(_ => this.log(`updated task id=${task.id}`)),
+      catchError(this.handleError<any>('updateTask'))
+    );
+  }  
+
+  deleteTask(task: Task): Observable<any> {
+    const url = `${this.tasksURL}/${task.id}`;
+
+    return this.http.delete(url, this.httpOptions).pipe(
+      tap(_ => this.log(`updated task id=${task.id}`)),
+      catchError(this.handleError<any>('updateTask'))
+    );
+  } 
 
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.tasksURL).
