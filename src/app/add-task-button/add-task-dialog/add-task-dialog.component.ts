@@ -67,7 +67,6 @@ export class AddTaskDialogComponent {
       description: this.description.value,
       status: "open"
     }).subscribe()
-    this.taskService.getTasks().subscribe(t => console.log(t.length))
     this.dialogRef.close();
     
   }

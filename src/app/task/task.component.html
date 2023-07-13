@@ -9,10 +9,8 @@
     </mat-card-content>
   <div>
     <mat-card-actions style="justify-content: flex-end;">
-      <div class="checkBox">
-          <button mat-icon-button title="Mark as Done">
-              <mat-icon>done</mat-icon>
-          </button>
+      <div class="checkBox" *ngIf="task.status !='done'">
+          <app-done-task-button [task]="task"></app-done-task-button>
       </div>
       <div class="taskManipulation">
           <app-delete-task-button [task]="task"></app-delete-task-button>

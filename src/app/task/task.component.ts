@@ -1,13 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Task, TaskCategory } from '../task/task';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
-import { NgIf } from '@angular/common'
 import { TaskService } from '../task.service';
 import { User } from '../user/user';
 import { UserService } from '../user.service';
-import { Observable } from 'rxjs';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-task',
@@ -36,6 +33,9 @@ export class DialogElementsExampleDialog {
   public task?: Task;
 
   public taskCategory = TaskCategory;
+
+  public states = ["open", "in-progress", "done"];
+
 
   users: User[] = [];
 

@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ChangeDetectorRef } from '@angular/core';
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -26,7 +25,7 @@ export class DragDropTaskComponent {
   onSelect(task: Task): void {
     this.selectedTask = task;
   }
-  constructor(private taskService: TaskService, private cdr: ChangeDetectorRef) {}
+  constructor(private taskService: TaskService) {}
 
 
   ngOnInit(): void {
@@ -41,6 +40,7 @@ export class DragDropTaskComponent {
   }
 
   getTasks(): void {
+    console.log(this.allTasks.length)
     this.taskService.getTasks().subscribe(allTasks => this.initilializeTasks(allTasks));
   }  
 
@@ -83,6 +83,10 @@ export class DragDropTaskComponent {
         this.taskService.updateTask(this.selectedTask).subscribe()
       }
     }
+  }
+
+  updateView(){
+    this.getTasks();
   }
 }
 
