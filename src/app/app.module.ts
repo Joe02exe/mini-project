@@ -21,6 +21,11 @@ import {MatSelectModule} from '@angular/material/select';
 import { DeleteTaskButtonComponent } from './delete-task-button/delete-task-button.component';
 import { AddTaskButtonComponent } from './add-task-button/add-task-button.component';
 import { DoneTaskButtonComponent } from './done-task-button/done-task-button.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker'; 
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -33,6 +38,8 @@ import { DoneTaskButtonComponent } from './done-task-button/done-task-button.com
     DeleteTaskButtonComponent,
     AddTaskButtonComponent,
     DoneTaskButtonComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     MatSelectModule,
@@ -47,6 +54,9 @@ import { DoneTaskButtonComponent } from './done-task-button/done-task-button.com
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
 // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
 // and returns simulated server responses.

@@ -10,10 +10,10 @@ import { v4 as uuidv4 } from 'uuid';
 export class InMemoryDataService implements InMemoryDbService{
    createDb() {
       const users =[
-        { username: "john", firstName: "John", lastName: "Doe", password: "passwd", birthDate: new Date("2000-01-01"), role: "admin"},
-        { username: "harry", firstName: "Harry", lastName: "Kane", password: "passwd", birthDate: new Date("1980-09-10"), role: "user"},
-        { username: "raheem", firstName: "Raheem", lastName: "Sterling", password: "passwd", birthDate: new Date("1997-06-01"), role: "user"},
-        { username: "mason", firstName: "Mason", lastName: "Mount", password: "passwd", birthDate: new Date("2001-04-16"), role: "admin"},
+        {id: uuidv4(), username: "john", firstName: "John", lastName: "Doe", password: "passwd", birthDate: new Date("2000-01-01"), role: "admin", email: "test@gmail.com"},
+        {id: uuidv4(), username: "harry", firstName: "Harry", lastName: "Kane", password: "passwd", birthDate: new Date("1980-09-10"), role: "user", email: "test@gmail.com"},
+        {id: uuidv4(), username: "raheem", firstName: "Raheem", lastName: "Sterling", password: "passwd", birthDate: new Date("1997-06-01"), role: "user", email: "test@gmail.com"},
+        {id: uuidv4(), username: "mason", firstName: "Mason", lastName: "Mount", password: "passwd", birthDate: new Date("2001-04-16"), role: "admin", email: "test@gmail.com"},
       ]
       const tasks =[
         {id : uuidv4(), description: "This is the description for Task 1", assignedUser: users[0], createdUser: users[0], status: "open", name: "task1", category: "frontend"},
