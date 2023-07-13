@@ -17,7 +17,7 @@ export class DragDropTaskComponent {
 
   allTasks: Task [] = []
   doneTasks: Task [] = [];
-  openTasks: Task[] = [];
+  openTasks: Task[] = []; 
   inProgressTasks: Task [] = [];
 
   selectedTask?: Task;
