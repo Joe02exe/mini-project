@@ -8,6 +8,7 @@ import { User } from './user/user';
   providedIn: 'root'
 })
 export class UserService {
+
   private userURL = 'api/users';
 
   httpOptions = {
@@ -66,4 +67,8 @@ export class UserService {
     private log(message: string) {
       console.log("logger active: "+ message)
     }  
+
+    hasValidCredentials(username: String, passwd: String) : boolean {
+      return true;
+    }
 }

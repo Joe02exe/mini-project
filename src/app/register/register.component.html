@@ -11,7 +11,7 @@
                 <div>
                     <mat-form-field class="textAreaForm">
                         <input matInput placeholder="Username" formControlName="username">
-                        <!---check for double username here too-->
+                        <!---TODO: check for double username here too-->
                         <mat-error *ngIf="username.touched && username.hasError('required')">Username is required</mat-error>
                     </mat-form-field>
                 </div>
@@ -53,7 +53,7 @@
                         <input matInput [type]="hidePasswordConfirm ? 'password' : 'text'" formControlName="passwordConfirm">
                         <button mat-icon-button matSuffix (click)="hidePasswordConfirm = !hidePasswordConfirm" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePasswordConfirm">
                           <mat-icon>{{hidePasswordConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
-                          <!--- check for matching password right here -->
+                          <!--- TODO: check for matching password right here -->
                         </button>
                       </mat-form-field>
                 </div>
@@ -63,8 +63,8 @@
               <mat-error *ngIf="passwordConfirm.touched && form.hasError('passwordsNotMatching')"><small>Passwords are not
                   matching</small></mat-error>
                   <div class="buttons">
-                    <button mat-flat-button color="primary" >Register</button>
-                    <button [routerLink]="['../login']" mat-button color="primary">Go to Login instead</button>
+                    <button mat-flat-button color="primary" [disabled]="!form.valid" >Register</button>
+                    <button [routerLink]="['../login']" mat-button color="primary" >Go to Login instead</button>
                   </div>
             </form>
           </mat-card-content>
