@@ -10,8 +10,9 @@ import { TaskCategory } from 'src/app/task/task';
 import { User } from 'src/app/user/user';
 import { v4 as uuidv4 } from 'uuid';
 import { TaskService } from 'src/app/task.service';
-import { Task } from 'src/app/task/task';
 import { UserService } from 'src/app/user.service';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 
 
@@ -20,21 +21,24 @@ import { UserService } from 'src/app/user.service';
   templateUrl: './add-task-dialog.component.html',
   styleUrls: ['./add-task-dialog.component.css'],
   standalone: true,
-  imports: [CommonModule, MatDialogModule,MatSelectModule, MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule],
+  imports: [CommonModule, MatDialogModule,MatSelectModule, MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule, ReactiveFormsModule],
 })
 export class AddTaskDialogComponent {
-  //default values for a task
-  id: string = uuidv4();
-  name: string = "";
-  category: TaskCategory = TaskCategory.entry4;
-  assignedUser?: User;
-  createdUser?: User =         { username: "john", firstName: "John", lastName: "Doe", password: "passwd", birthDate: new Date("2000-01-01"), role: "admin"};
-  description: string = "";
-  status: Task["status"] = "open"
+  
+  taskForm = new FormGroup({
+    'name': new FormControl("", [
+      Validators.required
+    ]),
+    'category': new FormControl("",[
+      Validators.required
+    ]),
+    'assignedUser': new FormControl("",[
+      Validators.required
+    ]),
+    'description': new FormControl("")
+  });
 
   public taskCategory = TaskCategory;
-
-
   users: User[] = [];
 
   constructor(
@@ -54,22 +58,32 @@ export class AddTaskDialogComponent {
   }
 
   addTask(): void {
-    console.log("in here")
-    if (this.createdUser && this.assignedUser){
-      let task: Task = {
-        id: this.id,
-        name: this.name,
-        category: this.category,
-        assignedUser: this.assignedUser,
-        createdUser: this.createdUser,
-        status: this.status, description:
-        this.description
-      };
-      this.taskService.addTask(task)
-      console.log("new task created")
-      this.dialogRef.close();
-    }
+    this.taskService.addTask({
+      id: uuidv4(),
+      name: this.name.value,
+      category: this.category.value,
+      createdUser: { username: "john", firstName: "John", lastName: "Doe", password: "passwd", birthDate: new Date("2000-01-01"), role: "admin"},
+      assignedUser: this.assignedUser.value,
+      description: this.description.value,
+      status: "open"
+    }).subscribe()
+    this.taskService.getTasks().subscribe(t => console.log(t.length))
+    this.dialogRef.close();
     
   }
-    
+  get name(): FormControl {
+    return this.taskForm.get('name') as FormControl;
+  }
+
+  get category(): FormControl {
+    return this.taskForm.get('category') as FormControl;
+  }
+
+  get assignedUser(): FormControl {
+    return this.taskForm.get('assignedUser') as FormControl;
+  }
+
+  get description(): FormControl {
+    return this.taskForm.get('description') as FormControl;
+  }
 }

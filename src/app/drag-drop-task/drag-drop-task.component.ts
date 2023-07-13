@@ -1,11 +1,9 @@
 import { Component, Input } from '@angular/core';
-import {NgFor} from '@angular/common';
+import { ChangeDetectorRef } from '@angular/core';
 import {
   CdkDragDrop,
   moveItemInArray,
   transferArrayItem,
-  CdkDrag,
-  CdkDropList,
 } from '@angular/cdk/drag-drop';
 
 import { Task } from '../task/task';
@@ -28,7 +26,7 @@ export class DragDropTaskComponent {
   onSelect(task: Task): void {
     this.selectedTask = task;
   }
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private cdr: ChangeDetectorRef) {}
 
 
   ngOnInit(): void {
@@ -44,9 +42,7 @@ export class DragDropTaskComponent {
 
   getTasks(): void {
     this.taskService.getTasks().subscribe(allTasks => this.initilializeTasks(allTasks));
-  }
-
-  
+  }  
 
   drop(event: CdkDragDrop<Task []>) {
     if (event.previousContainer === event.container) {
@@ -60,6 +56,34 @@ export class DragDropTaskComponent {
         event.currentIndex,
       );
     }
+    this.updateValues()
   }
 
+  updateValues() {
+    for (let index = 0; index < this.doneTasks.length; index++) {
+      if(this.doneTasks[index].status != "done"){
+        this.doneTasks[index].status = "done";
+        this.selectedTask =  this.inProgressTasks[index];
+        this.taskService.updateTask(this.selectedTask).subscribe()
+      }
+      
+    }
+    for (let index = 0; index < this.inProgressTasks.length; index++) {
+      if(this.inProgressTasks[index].status != "in-progress"){
+        this.inProgressTasks[index].status = "in-progress";
+        this.selectedTask =  this.inProgressTasks[index];
+        this.taskService.updateTask(this.selectedTask).subscribe()
+      }
+      
+    }
+    for (let index = 0; index < this.openTasks.length; index++) {
+      if(this.openTasks[index].status != "open"){
+        this.openTasks[index].status = "open";
+        this.selectedTask =  this.inProgressTasks[index];
+        this.taskService.updateTask(this.selectedTask).subscribe()
+      }
+    }
+  }
 }
+
+

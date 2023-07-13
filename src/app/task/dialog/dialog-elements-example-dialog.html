@@ -1,8 +1,14 @@
 <div *ngIf="task" style="min-width: 500px"> 
-  <h1 mat-dialog-title>{{task.name}} ({{task.status}})</h1>
+  <h1 mat-dialog-title>Edit Task</h1>
   <div mat-dialog-content>
     <div>ID: {{task.id}}</div>
     <div>Created by: {{task.createdUser.username}}</div>
+    <div>
+      <mat-form-field class="nameForm">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="task.name">
+      </mat-form-field>
+    </div>
     <div>
       <mat-form-field class="selectForm">
         <mat-label>Assigned User</mat-label>
@@ -21,8 +27,8 @@
       <mat-label >Description</mat-label>
       <textarea matInput [(ngModel)]="task.description" rows="4"></textarea>
     </mat-form-field>
-  </div>
-  <div mat-dialog-actions>
-    <button mat-button [mat-dialog-close]="task">Close</button>
+    <div mat-dialog-actions>
+      <button mat-flat-button color="primary"  (click)="updateTask()" mat-dialog-close>Save</button>
+    </div>
   </div>
 </div>

@@ -14,8 +14,6 @@ export class AddTaskButtonComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(AddTaskDialogComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    dialogRef.afterClosed().subscribe();
   }
 }

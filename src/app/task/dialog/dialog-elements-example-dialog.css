@@ -1,9 +1,12 @@
 .selectForm {
     margin-right: 16px;
-    margin-top: 16px;
     min-width: 300px;
 }
 
-.textAreaForm {
+.textAreaForm, .nameForm {
     min-width: 616px;
+}
+
+.nameForm {
+    margin-top: 16px;
 }

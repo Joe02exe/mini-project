@@ -19,14 +19,14 @@ export class TaskService {
   constructor(private http: HttpClient) {}
 
   addTask(task: Task): Observable<any> {
-    return this.http.post(this.tasksURL, task, this.httpOptions).pipe(
+    return this.http.post<Task>(this.tasksURL, task, this.httpOptions).pipe(
       tap(_ => this.log(`added task id=${task.id}`)),
       catchError(this.handleError<any>('addTask'))
     );
   }
 
   updateTask(task: Task): Observable<any> {
-    return this.http.put(this.tasksURL, task, this.httpOptions).pipe(
+    return this.http.put<Task>(this.tasksURL, task, this.httpOptions).pipe(
       tap(_ => this.log(`updated task id=${task.id}`)),
       catchError(this.handleError<any>('updateTask'))
     );
@@ -51,13 +51,13 @@ export class TaskService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
     
-        console.error(error);
+        console.error(error.error.message);
         this.log(`${operation} failed: ${error.message}`);
         return of(result as T);
       };
     }
 
-    private log(message: string) {
-      console.log("logger active: "+ message)
-    }  
+  private log(message: string) {
+    console.log("logger active: "+ message)
+  }  
 }

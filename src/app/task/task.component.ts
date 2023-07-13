@@ -7,6 +7,7 @@ import { TaskService } from '../task.service';
 import { User } from '../user/user';
 import { UserService } from '../user.service';
 import { Observable } from 'rxjs';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-task',
@@ -38,7 +39,7 @@ export class DialogElementsExampleDialog {
 
   users: User[] = [];
 
-  constructor(private userService : UserService) {}
+  constructor(private userService : UserService, private taskService : TaskService) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -47,6 +48,11 @@ export class DialogElementsExampleDialog {
   getUsers(): void {
     this.userService.getUsers()
     .subscribe(users => this.users = users);
+  }
+
+  updateTask(): void {
+    if (this.task)
+      this.taskService.updateTask(this.task).subscribe()
   }
   
 }

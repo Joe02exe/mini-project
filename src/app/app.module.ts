@@ -20,7 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { DeleteTaskButtonComponent } from './delete-task-button/delete-task-button.component';
 import { AddTaskButtonComponent } from './add-task-button/add-task-button.component';
-import { AddTaskDialogComponent } from './add-task-button/add-task-dialog/add-task-dialog.component'; 
+
 
 @NgModule({
   declarations: [

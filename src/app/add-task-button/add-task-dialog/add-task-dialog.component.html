@@ -1,32 +1,33 @@
 <div style="min-width: 500px"> 
     <h1 mat-dialog-title>New Task</h1>
-    <div mat-dialog-content>
-        <div>
-            <mat-form-field class="nameForm">
-                <mat-label>Name</mat-label>
-                <input matInput [(ngModel)]="name">
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field class="selectForm">
-                <mat-label>Category</mat-label>
-                <mat-select matInput [(ngModel)]="category">
-                <mat-option *ngFor="let c of taskCategory | keyvalue" value="c.value">{{c.value}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field class="selectForm">
-                <mat-label>Assignee</mat-label>
-                <mat-select matInput [(ngModel)]="assignedUser">
-                    <mat-option *ngFor="let user of users" value="user">{{user.username}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field class="textAreaForm">
-                <mat-label >Description</mat-label>
-                <textarea matInput [(ngModel)]="description" rows="4"></textarea>
-            </mat-form-field>
-        </div>
-        <button mat-flat-button color="primary" (click)="addTask()" >Submit</button>
-    </div>
+        <form [formGroup]="taskForm" mat-dialog-content (ngSubmit)="addTask()">
+
+            <div>
+                <mat-form-field class="nameForm">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName = "name">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="selectForm">
+                    <mat-label>Category</mat-label>
+                    <mat-select matInput formControlName="category">
+                    <mat-option *ngFor="let c of taskCategory | keyvalue" [value]="c.value">{{c.value}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="selectForm">
+                    <mat-label>Assignee</mat-label>
+                    <mat-select matInput formControlName="assignedUser">
+                        <mat-option *ngFor="let user of users" [value]="user">{{user.username}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="textAreaForm">
+                    <mat-label >Description</mat-label>
+                    <textarea matInput formControlName="description" rows="4"></textarea>
+                </mat-form-field>
+            </div>
+            <button mat-flat-button color="primary">Submit</button>
+        </form>
 </div> 
