@@ -3,6 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user/user';
+import { MockAuthentificationService } from '../mock-authentification.service';
+import { v4 as uuidv4 } from 'uuid';
+
 
 @Component({
   selector: 'app-login',
@@ -19,7 +22,7 @@ export class LoginComponent {
     password: new FormControl(null, [Validators.required])
   });
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, private userService: UserService,private mockAuthentificationService : MockAuthentificationService) { }
 
 
   ngOnInit(): void {
@@ -30,6 +33,7 @@ export class LoginComponent {
     //console.log(this.username.value + this.password.value)
     //if (this.user?.password == this.password.value) {
       // look at <routerlink>
+    this.mockAuthentificationService.user = {id: uuidv4(), username: "john", firstName: "John", lastName: "Doe", password: "passwd", birthDate: new Date("2000-01-01"), role: "admin", email: "test@gmail.com"}
     if (true) {
       this.router.navigate(['../dashboard'])
     }

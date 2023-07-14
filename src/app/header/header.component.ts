@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MockAuthentificationService } from '../mock-authentification.service';
 
 @Component({
   selector: 'app-header',
@@ -7,4 +8,23 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor (private mockAuthentificationService: MockAuthentificationService) {}
+
+  isAdmin() : boolean {
+    if (this.mockAuthentificationService.user?.role == 'admin'){
+      return true;
+    }
+    return false;
+  }
+
+  isAuthenticated() : boolean {
+    if (this.mockAuthentificationService.user){
+      return true;
+    }
+    return false;
+  }
+
+  logout() {
+    this.mockAuthentificationService.logout();
+  }
 }

@@ -4,11 +4,10 @@
 <mat-toolbar class="header">
     <h1>Todo Application</h1>
     <span class="example-spacer"></span>
-    <!---TODO: add ngIf to check wether or not the person is an admin or not-->
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" title="Manage Users">
+    <button *ngIf="isAdmin()" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" title="Manage Users">
       <mat-icon>person</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [routerLink]="['../login']">
+    <button *ngIf="isAuthenticated()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [routerLink]="['../login']" title="Logout" (click) = logout()>
       <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
