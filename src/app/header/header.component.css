@@ -3,9 +3,13 @@
   }
 
 .header {
-    position: fixed;
     top: 0;
     z-index: 1;
     background-color: #a2d9ff;
-    margin-bottom: 600px;
+}
+
+.header-background {
+    position: fixed; 
+    top: 0;
+    z-index: -1;
 }
