@@ -25,7 +25,8 @@
                     </mat-form-field>
                 </div>
                 <div class="buttons" style="margin-top: 20px;">
-                    <button mat-flat-button color="primary" (click)="login()">Login</button>
+                    <button mat-flat-button color="primary" (click)="login()" [disabled]="!form.valid" style="margin-bottom: 10px;">Login</button>
+                    <button [routerLink]="['../register']" mat-button color="primary" >Go to Register instead</button>
                   </div>
             </form>
           </mat-card-content>

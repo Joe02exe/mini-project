@@ -69,7 +69,7 @@ export class DragDropTaskComponent {
       if(this.doneTasks[index].status != "done"){
         this.doneTasks[index].status = "done";
         this.selectedTask =  this.inProgressTasks[index];
-        this.taskService.updateTask(this.selectedTask).subscribe()
+        this.taskService.updateTask(this.selectedTask)
       }
       
     }
@@ -77,7 +77,7 @@ export class DragDropTaskComponent {
       if(this.inProgressTasks[index].status != "in-progress"){
         this.inProgressTasks[index].status = "in-progress";
         this.selectedTask =  this.inProgressTasks[index];
-        this.taskService.updateTask(this.selectedTask).subscribe()
+        this.taskService.updateTask(this.selectedTask)
       }
       
     }
@@ -85,7 +85,7 @@ export class DragDropTaskComponent {
       if(this.openTasks[index].status != "open"){
         this.openTasks[index].status = "open";
         this.selectedTask =  this.inProgressTasks[index];
-        this.taskService.updateTask(this.selectedTask).subscribe()
+        this.taskService.updateTask(this.selectedTask)
       }
     }
   }
