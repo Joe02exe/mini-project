@@ -17,6 +17,5 @@ export class DoneTaskButtonComponent {
       this.task.status = "done"
       this.taskService.updateTask(this.task).subscribe()
     }
-
   }
 }

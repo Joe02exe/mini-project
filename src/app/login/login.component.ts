@@ -23,11 +23,11 @@ export class LoginComponent {
 
 
   ngOnInit(): void {
-    this.userService.getUser(this.username.value).subscribe(u => this.user = u)
+    //this.userService.getUser(this.username.value).subscribe(u => this.user = u)
   }
   //TODO: make this work
   login() {
-    console.log(this.username.value + this.password.value)
+    //console.log(this.username.value + this.password.value)
     //if (this.user?.password == this.password.value) {
       // look at <routerlink>
     if (true) {
