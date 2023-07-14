@@ -2,7 +2,7 @@
     <path fill="#a2d9ff" fill-opacity="1" d="M0,192L80,165.3C160,139,320,85,480,85.3C640,85,800,139,960,149.3C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
   </svg>
 <mat-toolbar class="header">
-    <h1>Todo Application</h1>
+    <h1><a [routerLink]="['../dashboard']">Todo Application</a></h1>
     <span class="example-spacer"></span>
     <button *ngIf="isAdmin()" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" title="Manage Users">
       <mat-icon>person</mat-icon>
