@@ -7,6 +7,7 @@ import {
 
 import { Task } from '../task/task';
 import { TaskService } from '../task.service';
+import { startWith, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-drag-drop-task',
@@ -41,7 +42,11 @@ export class DragDropTaskComponent {
 
   getTasks(): void {
     console.log(this.allTasks.length)
-    this.taskService.getTasks().subscribe(allTasks => this.initilializeTasks(allTasks));
+    this.taskService.changes$.pipe(
+      startWith(undefined),
+      switchMap(() => this.taskService.getTasks())
+    ).subscribe(allTasks => this.initilializeTasks(allTasks))
+    
   }  
 
   drop(event: CdkDragDrop<Task []>) {

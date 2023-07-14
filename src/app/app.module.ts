@@ -26,6 +26,9 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker'; 
 import { MatNativeDateModule } from '@angular/material/core';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -40,8 +43,11 @@ import { MatNativeDateModule } from '@angular/material/core';
     DoneTaskButtonComponent,
     RegisterComponent,
     LoginComponent,
+    FooterComponent,
+    HeaderComponent,
   ],
   imports: [
+    MatToolbarModule,
     MatSelectModule,
     FormsModule,
     BrowserModule,
@@ -62,7 +68,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 // and returns simulated server responses.
 // Remove it when a real server is ready to receive requests.
 HttpClientInMemoryWebApiModule.forRoot(
-  InMemoryDataService, { dataEncapsulation: false }
+  InMemoryDataService, { dataEncapsulation: false, delay: 0 }
 ),
  BrowserAnimationsModule
   ],
