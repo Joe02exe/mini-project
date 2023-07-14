@@ -33,7 +33,7 @@ export class RegisterComponent {
   register() {
     console.log(this.birthDate.value + this.lastName.value + this.firstName.value + this.email.value + this.username.value + this.birthDate.value)
     this.userService.addUser({
-      id: uuidv4(),
+      _id: uuidv4(),
       role: "user",
       birthDate: this.birthDate.value,
       lastName: this.lastName.value,

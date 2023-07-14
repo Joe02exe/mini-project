@@ -60,10 +60,10 @@ export class AddTaskDialogComponent {
 
   addTask(): void {
     this.taskService.addTask({
-      id: uuidv4(),
+      _id: uuidv4(),
       name: this.name.value,
       category: this.category.value,
-      createdUser: {id: uuidv4(), username: "john", firstName: "John", lastName: "Doe", password: "passwd", birthDate: new Date("2000-01-01"), role: "admin", email: "test@gmail.com"},
+      createdUser: {_id: uuidv4(), username: "john", firstName: "John", lastName: "Doe", password: "passwd", birthDate: new Date("2000-01-01"), role: "admin", email: "test@gmail.com"},
       assignedUser: this.assignedUser.value,
       description: this.description.value,
       status: "open"

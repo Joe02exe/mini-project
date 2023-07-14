@@ -36,7 +36,7 @@ export class DragDropTaskComponent {
   initilializeTasks(allTasks : Task[]) : void {
     this.allTasks = allTasks
     this.openTasks = this.allTasks.filter(t => t.status === "open")
-    this.inProgressTasks = this.allTasks.filter(t => t.status === "in-progress")
+    this.inProgressTasks = this.allTasks.filter(t => t.status === "in_progress")
     this.doneTasks = this.allTasks.filter(t => t.status === "done")
   }
 
@@ -74,8 +74,8 @@ export class DragDropTaskComponent {
       
     }
     for (let index = 0; index < this.inProgressTasks.length; index++) {
-      if(this.inProgressTasks[index].status != "in-progress"){
-        this.inProgressTasks[index].status = "in-progress";
+      if(this.inProgressTasks[index].status != "in_progress"){
+        this.inProgressTasks[index].status = "in_progress";
         this.selectedTask =  this.inProgressTasks[index];
         this.taskService.updateTask(this.selectedTask)
       }

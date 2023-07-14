@@ -9,7 +9,7 @@ import { User } from './user/user';
 })
 export class UserService {
 
-  private userURL = 'api/users';
+  private userURL = 'http://localhost:3000/user';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,7 +19,7 @@ export class UserService {
 
   addUser(user: User): Observable<any> {
     console.log(user)
-    return this.http.post<User>(this.userURL, user, this.httpOptions).pipe(
+    return this.http.post<User>(`${this.userURL}/add`, user, this.httpOptions).pipe(
       tap(_ => this.log(`added user id=${user.username}`)),
       catchError(this.handleError<any>('addUser'))
     );

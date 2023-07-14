@@ -10,13 +10,11 @@ export enum TaskCategory {
 }
 
 export interface Task {
-    id: string;
+    _id: string;
     name: string;
     category: TaskCategory;
     assignedUser: User;
     createdUser: User;
     description: string;
-    status: "open" | "in-progress" | "done";
+    status: "open" | "in_progress" | "done";
 }
-
-//taskdetaildialog, taskaddDialogand taskdeletedialog

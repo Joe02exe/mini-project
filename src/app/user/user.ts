@@ -6,5 +6,5 @@ export interface User {
     email: string;
     birthDate: Date;
     role: 'admin' | 'user';
-    id: string;
+    _id: string;
 }

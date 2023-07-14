@@ -34,7 +34,7 @@ export class DialogElementsExampleDialog {
 
   public taskCategory = TaskCategory;
 
-  public states = ["open", "in-progress", "done"];
+  public states = ["open", "in_progress", "done"];
 
 
   users: User[] = [];

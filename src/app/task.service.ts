@@ -25,7 +25,7 @@ export class TaskService {
   addTask(task: Task): Observable<any> {
     return this.http.post<Task>(this.tasksURL, task, this.httpOptions).pipe(
       tap(_ => {
-        this.log(`added task id=${task.id}`),
+        this.log(`added task id=${task._id}`),
         this.changesSubject.next();
       }),
       catchError(this.handleError<any>('addTask'))
@@ -35,7 +35,7 @@ export class TaskService {
   updateTask(task: Task): Observable<any> {
     return this.http.put<Task>(this.tasksURL, task, this.httpOptions).pipe(
       tap(_ => {
-        this.log(`updated task id=${task.id}`),
+        this.log(`updated task id=${task._id}`),
         this.changesSubject.next();
       }),
       catchError(this.handleError<any>('updateTask'))
@@ -43,11 +43,11 @@ export class TaskService {
   }  
 
   deleteTask(task: Task): Observable<any> {
-    const url = `${this.tasksURL}/${task.id}`;
+    const url = `${this.tasksURL}/${task._id}`;
 
     return this.http.delete(url, this.httpOptions).pipe(
       tap(_ => {
-        this.log(`deleted task with id=${task.id}`),
+        this.log(`deleted task with id=${task._id}`),
         this.changesSubject.next();
       }),
       catchError(this.handleError<any>('deleteTask'))

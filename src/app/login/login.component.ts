@@ -33,7 +33,7 @@ export class LoginComponent {
     //console.log(this.username.value + this.password.value)
     //if (this.user?.password == this.password.value) {
       // look at <routerlink>
-    this.mockAuthentificationService.user = {id: uuidv4(), username: "john", firstName: "John", lastName: "Doe", password: "passwd", birthDate: new Date("2000-01-01"), role: "admin", email: "test@gmail.com"}
+    this.mockAuthentificationService.user = {_id: uuidv4(), username: "john", firstName: "John", lastName: "Doe", password: "passwd", birthDate: new Date("2000-01-01"), role: "admin", email: "test@gmail.com"}
     if (true) {
       this.router.navigate(['../dashboard'])
     }
