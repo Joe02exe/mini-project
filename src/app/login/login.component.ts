@@ -15,6 +15,8 @@ import { v4 as uuidv4 } from 'uuid';
 export class LoginComponent {
   hidePassword = true;
 
+  error = ""
+
   user? : User
 
   form: FormGroup = new FormGroup({
@@ -30,15 +32,26 @@ export class LoginComponent {
   }
   //TODO: make this work
   login() {
-    //console.log(this.username.value + this.password.value)
-    //if (this.user?.password == this.password.value) {
-      // look at <routerlink>
-    this.mockAuthentificationService.user = {username: "john", firstName: "John", lastName: "Doe", password: "passwd", birthDate: new Date("2000-01-01"), role: "admin", email: "test@gmail.com"}
-    if (true) {
-      this.router.navigate(['../dashboard'])
-    }
+    const username = this.username.value;
+    const password = this.password.value;
+  
+    this.userService.getUser(username).subscribe(
+      (user) => {
+        if (user && user.password == this.password.value) {
+          this.user = user;
+          this.mockAuthentificationService.login(user)
+          this.router.navigate(['/dashboard']);
+          console.log("navigated")
+        } else {
+          this.error = "Invalid credentials!"
+        }
+      },
+      (error) => {
+        console.error("Error occurred:", error);
+      }
+    );
   }
-
+  
   get username(): FormControl {
     return this.form.get('username') as FormControl;
   }

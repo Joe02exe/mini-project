@@ -43,12 +43,6 @@ export class RegisterComponent {
       tap(_ => this.router.navigate(['../login']))
     ).subscribe();
   }
-  // register() {
-  //   this.userService.simple()
-  //     .pipe(
-  //     tap(_ => this.router.navigate(['../login']))
-  //     ).subscribe();
-  // }
 
   get email(): FormControl {
     return this.form.get('email') as FormControl;

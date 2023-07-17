@@ -33,7 +33,7 @@ export class TaskService {
   }
 
   updateTask(task: Task): Observable<any> {
-    return this.http.put<Task>(`${this.tasksURL}/update`, task, this.httpOptions).pipe(
+    return this.http.put<Task>(`${this.tasksURL}/update/`, task, this.httpOptions).pipe(
       tap(_ => {
         this.log(`updated task id=${task.id}`),
         this.changesSubject.next();

@@ -48,7 +48,7 @@ export class UserService {
       );
   }
   getUser(username :String): Observable<User> {
-    const url = `${this.userURL}/${username}`;
+    const url = `${this.userURL}/get/${username}`;
     return this.http.get<User>(url).pipe(
       tap(_ => this.log(`fetched user id=${username}`)),
       catchError(this.handleError<User>(`getUser id=${username}`))
@@ -68,7 +68,6 @@ export class UserService {
       console.log("logger active: "+ message)
     }  
 
-    hasValidCredentials(username: String, passwd: String) {
-      return true;
-    }
+
 }
+

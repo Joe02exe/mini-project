@@ -19,7 +19,7 @@
       <mat-form-field class="selectForm">
         <mat-label>Assigned User</mat-label>
         <mat-select [(value)]="task.assignedUser" placeholder="{{task.assignedUser}}" required>
-          <mat-option *ngFor="let user of users" [value]="user">{{user.username}}</mat-option>
+          <mat-option *ngFor="let user of users" [value]="user.username">{{user.username}}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field class="selectForm">
