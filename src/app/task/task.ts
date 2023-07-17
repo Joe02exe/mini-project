@@ -10,11 +10,11 @@ export enum TaskCategory {
 }
 
 export interface Task {
-    _id: string;
+    id?: string;
     name: string;
     category: TaskCategory;
-    assignedUser: User;
-    createdUser: User;
+    assignedUser: string;
+    createdUser: string;
     description: string;
     status: "open" | "in_progress" | "done";
 }

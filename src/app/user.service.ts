@@ -9,7 +9,7 @@ import { User } from './user/user';
 })
 export class UserService {
 
-  private userURL = 'http://localhost:3000/user';
+  private userURL = "http://localhost:3000/api/user"
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -26,14 +26,14 @@ export class UserService {
   }
 
   updateUser(user: User): Observable<any> {
-    return this.http.put(this.userURL, user, this.httpOptions).pipe(
+    return this.http.put(`${this.userURL}/update`, user, this.httpOptions).pipe(
       tap(_ => this.log(`updated user id=${user.username}`)),
       catchError(this.handleError<any>('updateUser'))
     );
   }  
 
   deleteUser(user: User): Observable<any> {
-    const url = `${this.userURL}/${user.username}`;
+    const url = `${this.userURL}/delete/${user.username}`;
 
     return this.http.delete(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted user id=${user.username}`)),
@@ -42,7 +42,7 @@ export class UserService {
   } 
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.userURL).
+    return this.http.get<User[]>(`${this.userURL}/getAll`).
     pipe(tap(_ => this.log('fetched users')),
         catchError(this.handleError<User[]>('getUsers', []))
       );
@@ -68,7 +68,7 @@ export class UserService {
       console.log("logger active: "+ message)
     }  
 
-    hasValidCredentials(username: String, passwd: String) : boolean {
+    hasValidCredentials(username: String, passwd: String) {
       return true;
     }
 }

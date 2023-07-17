@@ -10,7 +10,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class TaskService {
 
-  private tasksURL = 'api/tasks';
+  private tasksURL = "http://localhost:3000/api/task"
   private changesSubject = new Subject<void>();
   public changes$: Observable<void>;
 
@@ -23,9 +23,9 @@ export class TaskService {
   }
 
   addTask(task: Task): Observable<any> {
-    return this.http.post<Task>(this.tasksURL, task, this.httpOptions).pipe(
+    return this.http.post<Task>(`${this.tasksURL}/add`, task, this.httpOptions).pipe(
       tap(_ => {
-        this.log(`added task id=${task._id}`),
+        this.log(`added task id=${task.id}`),
         this.changesSubject.next();
       }),
       catchError(this.handleError<any>('addTask'))
@@ -33,9 +33,9 @@ export class TaskService {
   }
 
   updateTask(task: Task): Observable<any> {
-    return this.http.put<Task>(this.tasksURL, task, this.httpOptions).pipe(
+    return this.http.put<Task>(`${this.tasksURL}/update`, task, this.httpOptions).pipe(
       tap(_ => {
-        this.log(`updated task id=${task._id}`),
+        this.log(`updated task id=${task.id}`),
         this.changesSubject.next();
       }),
       catchError(this.handleError<any>('updateTask'))
@@ -43,11 +43,11 @@ export class TaskService {
   }  
 
   deleteTask(task: Task): Observable<any> {
-    const url = `${this.tasksURL}/${task._id}`;
+    const url = `${this.tasksURL}/delete/${task.id}`;
 
     return this.http.delete(url, this.httpOptions).pipe(
       tap(_ => {
-        this.log(`deleted task with id=${task._id}`),
+        this.log(`deleted task with id=${task.id}`),
         this.changesSubject.next();
       }),
       catchError(this.handleError<any>('deleteTask'))
@@ -55,7 +55,7 @@ export class TaskService {
   } 
 
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.tasksURL).
+    return this.http.get<Task[]>(`${this.tasksURL}/getAll`).
     pipe(tap(_ => {
       this.log(`fetched all tasks`)
     }),
