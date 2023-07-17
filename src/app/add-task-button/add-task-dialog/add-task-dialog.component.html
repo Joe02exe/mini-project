@@ -18,7 +18,7 @@
                 <mat-form-field class="selectForm">
                     <mat-label>Assignee</mat-label>
                     <mat-select matInput formControlName="assignedUser">
-                        <mat-option *ngFor="let user of users" [value]="user">{{user.username}}</mat-option>
+                        <mat-option *ngFor="let user of users" [value]="user.username">{{user.username}}</mat-option>
                     </mat-select>
                 </mat-form-field>
             </div>

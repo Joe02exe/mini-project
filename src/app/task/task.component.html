@@ -1,10 +1,10 @@
 <mat-card class="task-card" *ngIf="task" (click)="openDialog(task)">
     <mat-card-header >
       <mat-card-title>Task name: {{task.name}}</mat-card-title>
-      <mat-card-subtitle>ID: {{task._id}}</mat-card-subtitle>
+      <mat-card-subtitle>ID: {{task.id}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <p>Assigned User: {{task.assignedUser.username}}</p>
+        <p>Assigned User: {{task.assignedUser}}</p>
         <p>Category: {{task.category}}</p>
     </mat-card-content>
   <div>
