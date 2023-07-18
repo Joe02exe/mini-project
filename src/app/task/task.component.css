@@ -7,3 +7,9 @@
     color: green;
     justify-content: start;
 }
+@media only screen and (max-width: 600px) {
+  .task-card {
+      min-width: 90%;
+      padding: 20px;
+  }
+} 

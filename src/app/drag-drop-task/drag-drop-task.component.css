@@ -5,30 +5,35 @@
     border-radius: 20px;
 }
 
-.top {
-    display: flex;
-    justify-content: space-around;
-    margin: 5px;
-    background-color:rgb(203, 214, 214);
-    border-radius: 20px;
-
-}
-
 .bottom {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .open, .done, .inProgress {
     padding: 10px;
     min-width: 550px;
-    background-color:rgb(172, 200, 200);
-    border-radius: 10px;    
+    background-color:rgb(148, 195, 195);
+    border-radius: 10px;  
+    margin-top: 20px;
+  
+}
+
+@media only screen and (max-width: 600px) {
+    .open, .done, .inProgress  {
+        min-width: 100%;
+        padding: 20px;
+    }
+} 
+
+.header {
+    text-align: center;
 }
 
 .addButton {
-    scale: 1.5;
-    position:absolute;
-    right: 3.5rem;
-    padding: 1rem 1rem;
+    display: flex;
+    justify-content: left;
+    padding-left: 3%;
+
 }

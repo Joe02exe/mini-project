@@ -1,0 +1,5 @@
+button {
+    display: flex;
+    justify-content: left;
+    scale: 1.5;
+}
