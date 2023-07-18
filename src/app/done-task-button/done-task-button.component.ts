@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Task } from '../task/task';
-import { TaskService } from '../task.service';
+import { TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-done-task-button',

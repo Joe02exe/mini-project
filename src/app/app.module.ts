@@ -10,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+import { InMemoryDataService } from './services/in-memory-data.service';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropTaskComponent } from './drag-drop-task/drag-drop-task.component';
@@ -30,7 +30,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { SpinnerComponent } from './spinner/spinner.component';
-import { LoadingInterceptor } from './loading.interceptor';
+import { LoadingInterceptor } from './services/loading.interceptor';
 
 
 @NgModule({

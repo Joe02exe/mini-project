@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { Task, TaskCategory } from '../task/task';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import { TaskService } from '../task.service';
+import { TaskService } from '../services/task.service';
 import { User } from '../user/user';
-import { UserService } from '../user.service';
+import { UserService } from '../services/user.service';
 
 
 @Component({

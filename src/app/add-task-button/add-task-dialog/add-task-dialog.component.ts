@@ -9,12 +9,11 @@ import { CommonModule } from '@angular/common';
 import { TaskCategory } from 'src/app/task/task';
 import { User } from 'src/app/user/user';
 import { v4 as uuidv4 } from 'uuid';
-import { TaskService } from 'src/app/task.service';
-import { UserService } from 'src/app/user.service';
+import { TaskService } from 'src/app/services/task.service';
+import { UserService } from 'src/app/services/user.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { MockAuthentificationService } from 'src/app/mock-authentification.service';
-
+import { MockAuthentificationService } from 'src/app/services/mock-authentification.service';
 
 
 

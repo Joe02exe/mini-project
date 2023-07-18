@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MockAuthentificationService } from '../mock-authentification.service';
+import { MockAuthentificationService } from '../services/mock-authentification.service';
 
 @Component({
   selector: 'app-header',

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
+import { UserService } from '../services/user.service';
 import { User } from '../user/user';
-import { MockAuthentificationService } from '../mock-authentification.service';
+import { MockAuthentificationService } from '../services/mock-authentification.service';
 import { v4 as uuidv4 } from 'uuid';
 
 

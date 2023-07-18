@@ -1,5 +1,5 @@
 import { CanActivate, Route, Router } from '@angular/router';
-import { MockAuthentificationService } from './mock-authentification.service';
+import { MockAuthentificationService } from './services/mock-authentification.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({

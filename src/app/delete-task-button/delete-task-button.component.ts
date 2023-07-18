@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { Task } from '../task/task';
-import { TaskService } from '../task.service';
+import { TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-delete-task-button',

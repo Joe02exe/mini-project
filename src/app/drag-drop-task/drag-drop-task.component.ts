@@ -6,7 +6,7 @@ import {
 } from '@angular/cdk/drag-drop';
 
 import { Task } from '../task/task';
-import { TaskService } from '../task.service';
+import { TaskService } from '../services/task.service';
 import { startWith, switchMap } from 'rxjs';
 
 @Component({

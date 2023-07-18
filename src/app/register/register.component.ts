@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
-import { UserService } from '../user.service';
+import { UserService } from '../services/user.service';
 import { v4 as uuidv4 } from 'uuid';
+import { PasswordValidator } from '../passwordValidator/pass-word-validator';
 
 
 
@@ -25,7 +26,7 @@ export class RegisterComponent {
     'birthDate': new FormControl(),
     'password': new FormControl(null, [Validators.required]),
     'passwordConfirm': new FormControl(null, [Validators.required])
-  },
+  },{ validators: PasswordValidator.passwordsMatching }
   );
 
   constructor(private userService: UserService, private router: Router) { }
