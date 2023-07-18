@@ -13,6 +13,7 @@ import { TaskService } from 'src/app/task.service';
 import { UserService } from 'src/app/user.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { MockAuthentificationService } from 'src/app/mock-authentification.service';
 
 
 
@@ -43,7 +44,7 @@ export class AddTaskDialogComponent {
   users: User[] = [];
 
   constructor(
-    public dialogRef: MatDialogRef<AddTaskDialogComponent>, private taskService: TaskService, private userService : UserService){}
+    public dialogRef: MatDialogRef<AddTaskDialogComponent>, private taskService: TaskService, private userService : UserService, private authentificationService : MockAuthentificationService){}
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -62,7 +63,7 @@ export class AddTaskDialogComponent {
     this.taskService.addTask({
       name: this.name.value,
       category: this.category.value,
-      createdUser: this.assignedUser.value,
+      createdUser: this.authentificationService.user?.username,
       assignedUser: this.assignedUser.value,
       description: this.description.value,
       status: "open"

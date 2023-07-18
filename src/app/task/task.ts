@@ -14,7 +14,7 @@ export interface Task {
     name: string;
     category: TaskCategory;
     assignedUser: string;
-    createdUser: string;
+    createdUser?: string;
     description: string;
     status: "open" | "in_progress" | "done";
 }
