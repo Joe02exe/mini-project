@@ -31,6 +31,7 @@ import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { LoadingInterceptor } from './services/loading.interceptor';
+import { UniqueUsernameValidator } from './uniqueUsernameValidator/unique-username-validator';
 
 
 @NgModule({

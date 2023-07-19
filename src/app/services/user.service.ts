@@ -18,10 +18,8 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   addUser(user: User): Observable<any> {
-    console.log(user)
     return this.http.post<User>(`${this.userURL}/add`, user, this.httpOptions).pipe(
-      tap(_ => this.log(`added user id=${user.username}`)),
-      catchError(this.handleError<any>('addUser'))
+      tap(_ => this.log(`added user id=${user.username}`))
     );
   }
 

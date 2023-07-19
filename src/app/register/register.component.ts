@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 import { UserService } from '../services/user.service';
 import { v4 as uuidv4 } from 'uuid';
 import { PasswordValidator } from '../passwordValidator/pass-word-validator';
+import { UniqueUsernameValidator } from '../uniqueUsernameValidator/unique-username-validator';
 
 
 
@@ -22,11 +23,11 @@ export class RegisterComponent {
     'email': new FormControl(null, [Validators.required, Validators.email]),
     'firstName' : new FormControl(),
     'lastName': new FormControl(),
-    'username': new FormControl(null, [Validators.required]),
+    'username': new FormControl(null, [Validators.required], [ UniqueUsernameValidator.existingUsernameValidator(this.userService)]),
     'birthDate': new FormControl(),
     'password': new FormControl(null, [Validators.required]),
     'passwordConfirm': new FormControl(null, [Validators.required])
-  },{ validators: PasswordValidator.passwordsMatching }
+  },{ validators: PasswordValidator.passwordsMatching},
   );
 
   constructor(private userService: UserService, private router: Router) { }

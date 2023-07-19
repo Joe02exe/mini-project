@@ -11,7 +11,7 @@
                 <div>
                     <mat-form-field class="textAreaForm">
                         <input matInput placeholder="Username" formControlName="username">
-                        <!---TODO: check for double username here too-->
+                        <mat-error *ngIf="form.get('username')?.hasError('usernameExists')"><small>Username already in use</small></mat-error>
                         <mat-error *ngIf="username.touched && username.hasError('required')">Username is required</mat-error>
                     </mat-form-field>
                 </div>
@@ -53,7 +53,6 @@
                         <input matInput [type]="hidePasswordConfirm ? 'password' : 'text'" formControlName="passwordConfirm">
                         <button mat-icon-button matSuffix (click)="hidePasswordConfirm = !hidePasswordConfirm" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePasswordConfirm">
                           <mat-icon>{{hidePasswordConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
-                          <!--- TODO: check for matching password right here -->
                         </button>
                       </mat-form-field>
                 </div>

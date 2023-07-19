@@ -41,6 +41,7 @@ export class AddTaskDialogComponent {
 
   public taskCategory = TaskCategory;
   users: User[] = [];
+  error: string = ""
 
   constructor(
     public dialogRef: MatDialogRef<AddTaskDialogComponent>, private taskService: TaskService, private userService : UserService, private authentificationService : MockAuthentificationService){}
@@ -66,10 +67,15 @@ export class AddTaskDialogComponent {
       assignedUser: this.assignedUser.value,
       description: this.description.value,
       status: "open"
-    }).subscribe()
-    this.dialogRef.close();
-    
-  }
+    }).subscribe(
+      (response) => {
+        this.dialogRef.close();
+      },
+      (error) => {
+        this.error = error
+      })
+    }
+
   get name(): FormControl {
     return this.taskForm.get('name') as FormControl;
   }
