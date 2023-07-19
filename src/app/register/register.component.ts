@@ -21,10 +21,10 @@ export class RegisterComponent {
 
   form: FormGroup = new FormGroup({
     'email': new FormControl(null, [Validators.required, Validators.email]),
-    'firstName' : new FormControl(),
-    'lastName': new FormControl(),
+    'firstName' : new FormControl(null,[Validators.required]),
+    'lastName': new FormControl(null, [Validators.required]),
     'username': new FormControl(null, [Validators.required], [ UniqueUsernameValidator.existingUsernameValidator(this.userService)]),
-    'birthDate': new FormControl(),
+    'birthDate': new FormControl([Validators.required]),
     'password': new FormControl(null, [Validators.required]),
     'passwordConfirm': new FormControl(null, [Validators.required])
   },{ validators: PasswordValidator.passwordsMatching},
