@@ -62,7 +62,7 @@
               <mat-error *ngIf="passwordConfirm.touched && form.hasError('passwordsNotMatching')"><small>Passwords are not
                   matching</small></mat-error>
                   <div class="buttons">
-                    <button mat-flat-button [disabled]="!form.valid" (click)="register()" style="margin-bottom: 10px;">Register</button>
+                    <button mat-flat-button [disabled]="!form.valid" (click)="register()" style="margin-bottom: 10px;" >Register</button>
                     <button [routerLink]="['../login']" mat-button color="primary" >Go to Login instead</button>
                   </div>
             </form>
@@ -71,5 +71,3 @@
       </div>
     </div>
   </div>
-
-  <router-outlet></router-outlet>

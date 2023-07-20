@@ -31,10 +31,17 @@ import { HeaderComponent } from './header/header.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { LoadingInterceptor } from './services/loading.interceptor';
+import { UserpanelComponent } from './userpanel/userpanel.component';
+import { UserpanelDetailComponent } from './userpanel-detail/userpanel-detail.component';
+import {MatTableModule} from '@angular/material/table'; 
+import { DeleteUserButtonComponent, DeleteDialog } from './delete-user-button/delete-user-button.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
+    DeleteDialog,
+    DeleteUserButtonComponent,
     AppComponent,
     UserComponent,
     DragDropTaskComponent,
@@ -48,8 +55,12 @@ import { LoadingInterceptor } from './services/loading.interceptor';
     FooterComponent,
     HeaderComponent,
     SpinnerComponent,
+    UserpanelComponent,
+    UserpanelDetailComponent,
   ],
   imports: [
+    CommonModule,
+    MatTableModule,
     MatToolbarModule,
     MatSelectModule,
     FormsModule,

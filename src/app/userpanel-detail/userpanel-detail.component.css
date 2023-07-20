@@ -1,0 +1,26 @@
+.card {
+    max-width: 100%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.attributes {
+    display: flex;
+    justify-content: space-between;
+}
+.attributes {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 40px; 
+}
+  
+.attributes > div:last-child {
+    text-align: right;
+}
+
+@media only screen and (max-width: 1000px) {
+    .scrollableUsers{
+      max-width: 1000px;
+    }
+}
+  
