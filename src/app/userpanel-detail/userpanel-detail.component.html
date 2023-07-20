@@ -1,4 +1,4 @@
-<mat-card class="card" *ngIf="user">
+<mat-card class="card" *ngIf="user" (click)="openDialog(user)">
     <mat-card-content>
         <div class="attributes">
             <div>{{user.username}}</div>

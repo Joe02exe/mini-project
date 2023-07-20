@@ -36,10 +36,12 @@ import { UserpanelDetailComponent } from './userpanel-detail/userpanel-detail.co
 import {MatTableModule} from '@angular/material/table'; 
 import { DeleteUserButtonComponent, DeleteDialog } from './delete-user-button/delete-user-button.component';
 import { CommonModule } from '@angular/common';
+import { UserDialog } from './userpanel-detail/userpanel-detail.component';
 
 
 @NgModule({
   declarations: [
+    UserDialog,
     DeleteDialog,
     DeleteUserButtonComponent,
     AppComponent,

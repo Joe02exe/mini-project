@@ -1,0 +1,18 @@
+.selectForm {
+    margin-right: 16px;
+    min-width: 300px;
+}
+
+.textAreaForm, .nameForm {
+    min-width: 616px;
+}
+
+.nameForm {
+    margin-top: 16px;
+}
+
+.card {
+    min-width: 500px;
+    cursor: pointer;
+    margin: 10px;
+  }
