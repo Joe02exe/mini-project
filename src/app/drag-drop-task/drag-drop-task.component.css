@@ -14,9 +14,9 @@
 .open, .done, .inProgress {
     padding: 10px;
     min-width: 550px;
-    background-color:rgb(148, 195, 195);
+    background-color:rgb(40, 55, 112);
     border-radius: 10px;  
-    margin-top: 20px;
+    margin-top: 50px;
   
 }
 
@@ -29,6 +29,7 @@
 
 .header {
     text-align: center;
+    color:white
 }
 
 .addButton {

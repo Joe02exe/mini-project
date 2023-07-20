@@ -1,5 +1,19 @@
-.footer {
+.footer, .footer2 {
     position: fixed; 
     bottom: 0;
     z-index: -1;
+}
+
+.footer {
+    z-index: -2;
+}
+.footer2 {
+    transform: scale(4);
+
+}
+
+@media only screen and (max-width: 600px) {
+    .footer {
+        transform: scale(4);
+    }
 }
