@@ -10,7 +10,7 @@
             <form [formGroup]="form">
                 <div>
                     <mat-form-field class="textAreaForm">
-                        <input matInput placeholder="Username" formControlName="username">
+                        <input matInput placeholder="Username" formControlName="username" autofocus>
                         <mat-error *ngIf="form.get('username')?.hasError('usernameExists')"><small>Username already in use</small></mat-error>
                         <mat-error *ngIf="username.touched && username.hasError('required')">Username is required</mat-error>
                     </mat-form-field>
