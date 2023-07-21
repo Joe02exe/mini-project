@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddTaskButtonComponent } from './add-task-button.component';
+import { MatDialog } from '@angular/material/dialog';
 
 describe('AddTaskButtonComponent', () => {
   let component: AddTaskButtonComponent;
@@ -8,7 +9,9 @@ describe('AddTaskButtonComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AddTaskButtonComponent]
+      declarations: [AddTaskButtonComponent],
+      providers: [MatDialog]
+
     });
     fixture = TestBed.createComponent(AddTaskButtonComponent);
     component = fixture.componentInstance;

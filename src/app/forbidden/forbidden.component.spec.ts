@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 import { ForbiddenComponent } from './forbidden.component';
 
@@ -8,7 +9,9 @@ describe('ForbiddenComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ForbiddenComponent]
+      imports: [RouterModule],
+      declarations: [ForbiddenComponent],
+      providers: [ActivatedRoute]
     });
     fixture = TestBed.createComponent(ForbiddenComponent);
     component = fixture.componentInstance;
