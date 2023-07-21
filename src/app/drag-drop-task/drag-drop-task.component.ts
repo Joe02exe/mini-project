@@ -41,7 +41,6 @@ export class DragDropTaskComponent {
   }
 
   getTasks(): void {
-    console.log(this.allTasks.length)
     this.taskService.changes$.pipe(
       startWith(undefined),
       switchMap(() => this.taskService.getTasks())

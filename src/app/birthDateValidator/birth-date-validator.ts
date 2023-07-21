@@ -7,7 +7,6 @@ export class BirthDateValidator {
         const currentDate = new Date();
       
         if (selectedDate && selectedDate > currentDate) {
-            console.log("in here")
             return { dateBeforeToday: true };
         }
       

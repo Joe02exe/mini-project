@@ -47,7 +47,6 @@ export class DeleteDialog {
   constructor(public dialogRef: MatDialogRef<DeleteDialog>, private userService : UserService, private taskService : TaskService) {}
 
   deleteUser() {
-    console.log(this.user)
     if(this.user){
       this.userService.deleteUser(this.user).subscribe();
       this.user = undefined;

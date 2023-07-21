@@ -41,7 +41,6 @@ export class LoginComponent {
           this.user = user;
           this.mockAuthentificationService.login(user)
           this.router.navigate(['/dashboard']);
-          console.log("navigated")
         } else {
           this.error = "Invalid credentials!"
         }

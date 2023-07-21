@@ -17,3 +17,10 @@
         transform: scale(4);
     }
 }
+
+.authenticatedUser {
+    position:fixed;
+    bottom: 0;
+    right: 20px;
+    z-index: -2;
+}
