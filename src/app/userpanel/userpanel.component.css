@@ -3,36 +3,20 @@
     margin: auto;
     margin-top: 30px;
     background-color:rgb(40, 55, 112);
-}
-
-.header {
-    display: flex;
-    font-size: larger;
-    justify-content: center;
-    color: white;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .attributes {
     display: grid;
     color: white;
-    grid-template-columns: repeat(6, 1fr); 
+    grid-template-columns: repeat(6, 200px); 
     grid-gap: 40px;
+    justify-content: space-between;
 }
   
 .attributes > div:last-child {
     margin-right: 10px;
     text-align: right;
 }
-
-.scrollableUsers {
-    max-width: 100%;
-    overflow-y: auto;
-
-}
-@media only screen and (max-width: 1500px) {
-    .scrollableUsers{
-      max-width: 100%; 
-    }
-}
-
-  

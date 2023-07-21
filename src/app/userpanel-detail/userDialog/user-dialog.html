@@ -64,7 +64,7 @@
                   <mat-error *ngIf="passwordConfirm.touched && form.hasError('passwordsNotMatching')"><small>Passwords are not matching</small></mat-error>
                     <mat-error *ngIf="error"><small>{{error}}</small></mat-error>
                     <div class="buttons" style="margin-top: 10px;">
-                      <button mat-flat-button [disabled]="!form.valid" (click)="updateUser()" style="margin-bottom: 10px;" >Save</button>
+                      <button mat-flat-button color="primary" [disabled]="!form.valid" (click)="updateUser()" style="margin-bottom: 10px;" >Save</button>
                     </div>
               </form>
             </mat-card-content>
