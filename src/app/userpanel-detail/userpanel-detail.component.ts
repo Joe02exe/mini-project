@@ -6,6 +6,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UniqueUsernameValidator } from '../uniqueUsernameValidator/unique-username-validator';
 import { PasswordValidator } from '../passwordValidator/pass-word-validator';
 import { AddTaskDialogComponent } from '../add-task-button/add-task-dialog/add-task-dialog.component';
+import { BirthDateValidator } from '../birthDateValidator/birth-date-validator';
 
 @Component({
   selector: 'app-userpanel-detail',
@@ -46,7 +47,7 @@ export class UserDialog {
     'password': new FormControl(null, [Validators.required]),
     'passwordConfirm': new FormControl(null, [Validators.required]),
     'role': new FormControl(null, [Validators.required])
-  },{ validators: PasswordValidator.passwordsMatching},
+  },{ validators: [PasswordValidator.passwordsMatching, BirthDateValidator.dateBeforeTodayValidator]},
   );
 
   public user?: User;

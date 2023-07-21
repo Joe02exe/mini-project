@@ -1,18 +1,21 @@
 .selectForm {
-    margin-right: 16px;
-    min-width: 300px;
+    min-width: 500px;
+    font-family: 'Roboto Slab', serif;
 }
 
-.textAreaForm, .nameForm {
-    min-width: 616px;
-}
 
 .nameForm {
     margin-top: 16px;
 }
 
-.card {
-    min-width: 500px;
-    cursor: pointer;
-    margin: 10px;
-  }
+@media only screen and (min-width: 600px) {
+    .card {
+        padding: 20px;
+    }
+} 
+
+@media only screen and (max-width: 600px) {
+    .selectForm {
+        min-width: 100%;
+    }
+} 

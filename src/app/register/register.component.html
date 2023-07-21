@@ -61,6 +61,8 @@
                 </div>
               <mat-error *ngIf="passwordConfirm.touched && form.hasError('passwordsNotMatching')"><small>Passwords are not
                   matching</small></mat-error>
+                  <mat-error *ngIf="birthDate.touched && form.hasError('dateBeforeToday')"><small>Date must be a valid birthDate</small></mat-error>
+
                   <div class="buttons">
                     <button mat-flat-button [disabled]="!form.valid" (click)="register()" style="margin-bottom: 10px;" >Register</button>
                     <button [routerLink]="['../login']" mat-button color="primary" >Go to Login instead</button>

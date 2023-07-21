@@ -5,23 +5,13 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AdminAuthGuard implements CanActivate {
   constructor(private authService: MockAuthentificationService, private router: Router) {}
 
-  canActivate(): boolean {
-    if (this.authService.user) {
-      return true;
-    } else {
-      this.router.navigate(['/login']);
-      return false;
-    }
-  }
-
-  isAdmin() : boolean {
+  canActivate() : boolean {
     if (this.authService.user?.role == "admin") {
       return true;
     } else {
-      this.router.navigate(['.']);
       return false;
     }
   }

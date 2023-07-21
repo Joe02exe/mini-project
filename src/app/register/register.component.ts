@@ -6,6 +6,7 @@ import { UserService } from '../services/user.service';
 import { v4 as uuidv4 } from 'uuid';
 import { PasswordValidator } from '../passwordValidator/pass-word-validator';
 import { UniqueUsernameValidator } from '../uniqueUsernameValidator/unique-username-validator';
+import { BirthDateValidator } from '../birthDateValidator/birth-date-validator';
 
 
 
@@ -27,7 +28,7 @@ export class RegisterComponent {
     'birthDate': new FormControl([Validators.required]),
     'password': new FormControl(null, [Validators.required]),
     'passwordConfirm': new FormControl(null, [Validators.required])
-  },{ validators: PasswordValidator.passwordsMatching},
+  },{ validators: [PasswordValidator.passwordsMatching, BirthDateValidator.dateBeforeTodayValidator]},
   );
 
   constructor(private userService: UserService, private router: Router) { }

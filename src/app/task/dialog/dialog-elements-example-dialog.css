@@ -10,3 +10,7 @@
 .nameForm {
     margin-top: 16px;
 }
+
+* {
+    font-family: 'Roboto Slab', serif;
+}
