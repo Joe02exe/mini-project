@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { UserpanelComponent } from './userpanel/userpanel.component';
 import { AdminAuthGuard } from './admin-auth.guard';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 
 const routes: Routes = [  
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'users', component: UserpanelComponent, canActivate: [AdminAuthGuard]}
+  { path: 'users', component: UserpanelComponent, canActivate: [AdminAuthGuard]},
+  { path: 'forbidden', component: ForbiddenComponent}
 
 
 ];

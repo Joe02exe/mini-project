@@ -1,0 +1,27 @@
+
+.error {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.forbidden {
+    font-size: 150px
+}
+
+.code {
+    font-size: 40px
+
+}
+
+@media only screen and (max-width: 600px) {
+    .forbidden {
+        font-size: 60px
+    }
+    
+    .code {
+        font-size: 20px
+    
+    }
+} 

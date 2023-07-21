@@ -12,6 +12,7 @@ export class AdminAuthGuard implements CanActivate {
     if (this.authService.user?.role == "admin") {
       return true;
     } else {
+      this.router.navigate(['/forbidden']);
       return false;
     }
   }

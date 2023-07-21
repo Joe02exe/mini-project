@@ -11,10 +11,12 @@ export class MockAuthentificationService {
   constructor() { }
 
   login(user: User) {
+    console.log("in here with"+ user.username)
     this.user = user;
   }
 
   logout() {
+    console.log("logging out")
     this.user = undefined
   }
 }
