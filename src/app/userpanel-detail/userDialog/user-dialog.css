@@ -1,0 +1,21 @@
+.selectForm {
+    min-width: 500px;
+    font-family: 'Roboto Slab', serif;
+}
+
+
+.nameForm {
+    margin-top: 16px;
+}
+
+@media only screen and (min-width: 600px) {
+    .card {
+        padding: 20px;
+    }
+} 
+
+@media only screen and (max-width: 600px) {
+    .selectForm {
+        min-width: 100%;
+    }
+} 

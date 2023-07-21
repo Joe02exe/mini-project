@@ -1,0 +1,34 @@
+.card {
+    margin: auto;
+    margin-top: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-grow: 1;
+    max-width: auto;
+}
+
+* {
+    font-family: 'Roboto Slab', serif;
+}
+
+.attributes {
+    display: flex;
+    justify-content: space-between;
+}
+.attributes {
+    display: grid;
+    grid-template-columns: repeat(6, 200px);
+    grid-gap: 40px; 
+    justify-content: space-between;
+}
+  
+.attributes > div:last-child {
+    text-align: right;
+}
+
+@media only screen and (max-width: 1000px) {
+    .scrollableUsers{
+      max-width: 1000px;
+    }
+}
+  

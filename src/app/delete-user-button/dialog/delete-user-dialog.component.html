@@ -1,0 +1,12 @@
+<div><h1 mat-dialog-title style="font-family: 'Roboto Slab', serif;">Delete User</h1>
+  <div mat-dialog-content style="font-family: 'Roboto Slab', serif;">
+    Do you really want to delete this user? This action can't be undone!
+  </div>
+  <div mat-dialog-content style="font-family: 'Roboto Slab', serif; color: red;" *ngIf="error" color="primary">
+    Attention! There are still tasks that are assigned to this user. By deleting the user, you will also delete the tasks!
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="deleteUser()">Yes</button>
+    <button mat-button mat-dialog-close >No</button>
+  </div>
+</div>

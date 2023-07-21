@@ -1,0 +1,40 @@
+.todos {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 2rem;
+    border-radius: 20px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.open, .done, .inProgress {
+    padding: 10px;
+    min-width: 550px;
+    background-color:rgb(40, 55, 112);
+    border-radius: 10px;  
+    margin-top: 50px;
+  
+}
+
+@media only screen and (max-width: 600px) {
+    .open, .done, .inProgress  {
+        min-width: 100%;
+        padding: 20px;
+    }
+} 
+
+.header {
+    text-align: center;
+    color:white
+}
+
+.addButton {
+    display: flex;
+    justify-content: left;
+    padding-left: 3%;
+
+}

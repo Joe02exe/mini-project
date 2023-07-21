@@ -1,0 +1,57 @@
+.card {
+    max-width: 600px;
+    width: 100%;
+    padding: 50px;
+    background-color:rgb(40, 55, 112);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+        max-height: 80%;
+        max-width: 80%;
+        padding: 20px;
+        margin-top: 25px;
+        overflow-y: auto; 
+    }
+
+    .selectForm {
+          flex-direction: column;
+    }
+} 
+  
+
+.selectForm {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+mat-form-field {
+    flex-grow: 1;
+}
+
+.textAreaForm, .nameForm {
+    margin: 0 auto;
+    min-width: 100%;
+}
+
+.buttons {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+button {
+    background-color:white
+
+}
+
+button:disabled {
+    background-color: gray;
+}

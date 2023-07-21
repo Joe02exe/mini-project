@@ -1,0 +1,16 @@
+<mat-card class="card" *ngIf="user" (click)="openDialog(user)">
+    <mat-card-content>
+        <div class="attributes">
+            <div>{{user.username}}</div>
+            <div>{{user.firstName}}</div>
+            <div>{{user.lastName}}</div>
+            <div>{{user.email}}</div>
+            <div>{{user.role}}</div>
+            <div class="buttons">
+                <app-delete-user-button [user] = user></app-delete-user-button>
+            </div>
+        </div>
+    </mat-card-content>
+  </mat-card>
+  
+  <router-outlet></router-outlet>

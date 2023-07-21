@@ -1,0 +1,27 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.header {
+    top: 0;
+    z-index: 1;
+    background-color: #a2d9ff;
+}
+
+.header-background {
+    position: fixed; 
+    top: 0;
+    z-index: -1;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media only screen and (max-width: 900px) {
+    .header-background {
+        transform: scaleY(2);
+        margin-top: 80px
+    }
+
+}

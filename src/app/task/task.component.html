@@ -1,25 +1,22 @@
-<h2>All Tasks</h2>
-<div class="todos">
-    <div class="top">
-        <h2> Open Tasks</h2>
-        <h2> In-Progress-Tasks</h2>
-        <h2> Closed Tasks</h2>
-    </div>
-        <div class="bottom">
-        <div class="open">
-            <div *ngFor="let task of openTasks">
-                <app-task-detail [task]="task"></app-task-detail>
-            </div>
-        </div>
-        <div class="in-progress">
-            <div *ngFor="let task of inProgressTasks">
-                <app-task-detail [task]="task"></app-task-detail>
-            </div>
-        </div>
-        <div class="done">
-            <div *ngFor="let task of doneTasks">
-                <app-task-detail [task]="task"></app-task-detail>
-            </div>
-        </div>
-    </div>
-</div>
+<mat-card class="task-card" *ngIf="task" (click)="openDialog(task)">
+    <mat-card-header >
+      <mat-card-title>Task name: {{task.name}}</mat-card-title>
+      <mat-card-subtitle>ID: {{task.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>Assigned User: {{task.assignedUser}}</p>
+        <p>Category: {{task.category}}</p>
+    </mat-card-content>
+  <div>
+    <mat-card-actions style="justify-content: flex-end;">
+      <div class="checkBox" *ngIf="task.status !='done'">
+          <app-done-task-button [task]="task"></app-done-task-button>
+      </div>
+      <div class="taskManipulation">
+          <app-delete-task-button [task]="task"></app-delete-task-button>
+      </div>
+    </mat-card-actions>
+  </div>
+</mat-card>
+
+<router-outlet></router-outlet>

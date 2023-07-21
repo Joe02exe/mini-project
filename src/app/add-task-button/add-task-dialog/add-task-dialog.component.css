@@ -1,0 +1,13 @@
+
+.textAreaForm, .nameForm {
+    min-width: 100%;
+}
+
+.selectForm {
+    min-width: 100%;
+    margin-right: 16px;
+}
+
+* {
+    font-family: 'Roboto Slab', serif;
+}

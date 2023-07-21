@@ -1,0 +1,40 @@
+<div *ngIf="task" style="min-width: 500px"> 
+  <h1 mat-dialog-title style="font-family: 'Roboto Slab', serif; font-size:x-large; padding-bottom: 20px;">Edit Task</h1>
+  <div mat-dialog-content>
+    <div>ID: {{task.id}}</div>
+    <div>Created by: {{task.createdUser}}</div>
+    <div>
+      <mat-form-field class="selectForm">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="task.name" required>
+      </mat-form-field>
+      <mat-form-field class="selectForm">
+        <mat-label>Status</mat-label>
+        <mat-select [(value)]="task.status" placeholder="{{task.status}}" required>
+          <mat-option *ngFor="let s of states" [value]="s">{{s}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="selectForm">
+        <mat-label>Assigned User</mat-label>
+        <mat-select [(value)]="task.assignedUser" placeholder="{{task.assignedUser}}" required>
+          <mat-option *ngFor="let user of users" [value]="user.username">{{user.username}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="selectForm">
+        <mat-label>Category</mat-label>
+        <mat-select [(value)]="task.category" placeholder="{{task.category}}" required>
+          <mat-option *ngFor="let c of taskCategory | keyvalue" [value]="c.value">{{c.value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-form-field class="textAreaForm">
+      <mat-label >Description</mat-label>
+      <textarea matInput [(ngModel)]="task.description" rows="4"></textarea>
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-flat-button color="primary"  (click)="updateTask()" mat-dialog-close>Save</button>
+    </div>
+  </div>
+</div>

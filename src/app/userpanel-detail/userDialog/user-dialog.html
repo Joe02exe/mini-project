@@ -1,0 +1,72 @@
+<div *ngIf="user"> 
+        <mat-card class="card">
+            <h1 mat-dialog-title style="font-family: 'Roboto Slab', serif; font-size:x-large; padding-bottom: 20px;">Edit User: {{user.username}}</h1>
+            <mat-card-content>
+              <form [formGroup]="form">
+                  <div>
+                      <mat-form-field class="selectForm">
+                          <input matInput formControlName="firstName" placeholder="{{user.firstName}}">
+                          <mat-error *ngIf="firstName.touched && firstName.hasError('required')"><small>FirstName is required</small></mat-error>
+                        </mat-form-field>
+                  </div>
+                  <div>
+                        <mat-form-field class="selectForm">
+                          <input matInput formControlName="lastName" placeholder="{{user.lastName}}">
+                          <mat-error *ngIf="lastName.touched && lastName.hasError('required')"><small>LastName is required</small></mat-error>
+                        </mat-form-field>
+                  </div>
+                  <div>
+                      <mat-form-field class="selectForm">
+                          <input type="email" matInput formControlName="email" placeholder="{{user.email}}">
+                          <mat-error *ngIf="email.touched && email.hasError('required')"><small>Email is required</small></mat-error>
+                          <mat-error *ngIf="email.touched && email.hasError('email')"><small>Email must be valid</small></mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div >
+                        <mat-form-field class="selectForm">
+                          <mat-label>Birthdate</mat-label>
+                          <input matInput [matDatepicker]="picker" formControlName="birthDate">
+                          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                          <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>  
+                  </div>
+                  <div>
+                  <mat-form-field class="selectForm">
+                    <mat-label>Role</mat-label>
+                    <mat-select [(value)]="user.role" required formControlName="role">
+                        <mat-option *ngFor="let r of roles" [value]="r">{{r}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="role.touched && role.hasError('required')"><small>Email is required</small></mat-error>
+                  </mat-form-field>
+                </div>
+                  <div >
+                      <mat-form-field class="selectForm">
+                          <mat-label>Enter your password</mat-label>
+                          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+                          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field class="selectForm">
+                          <mat-label>Confirm your password</mat-label>
+                          <input matInput [type]="hidePasswordConfirm ? 'password' : 'text'" formControlName="passwordConfirm">
+                          <button mat-icon-button matSuffix (click)="hidePasswordConfirm = !hidePasswordConfirm" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePasswordConfirm">
+                            <mat-icon>{{hidePasswordConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
+                        </mat-form-field>
+                  </div>
+                  <div>
+                                          
+                  </div>
+                  <mat-error *ngIf="birthDate.touched && form.hasError('dateBeforeToday')"><small>Date must be a valid birthDate</small></mat-error>
+                  <mat-error *ngIf="passwordConfirm.touched && form.hasError('passwordsNotMatching')"><small>Passwords are not matching</small></mat-error>
+                    <mat-error *ngIf="error"><small>{{error}}</small></mat-error>
+                    <div class="buttons" style="margin-top: 10px;">
+                      <button mat-flat-button color="primary" [disabled]="!form.valid" (click)="updateUser()" style="margin-bottom: 10px;" >Save</button>
+                    </div>
+              </form>
+            </mat-card-content>
+          </mat-card>
+  </div>

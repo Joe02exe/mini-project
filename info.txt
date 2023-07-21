@@ -1,0 +1,3 @@
+- nest.js validation
+- swagger
+- responsive design
